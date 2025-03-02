@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
 import cookieParser from "cookie-parser";
+import { connectDB } from "./config/db";
 
 const app = express();
 
 app.use(cookieParser());
-dotenv.config();
+connectDB().catch((e) => console.log("An error occured connecting to the DB"));
 
 import staffRouter from "./routes/staff";
 
