@@ -1,4 +1,4 @@
-POST http://localhost:3000/staffs/register
+POST http://localhost:3000/staffs/login
 Content-Type: application/json
 
 {
@@ -12,4 +12,4 @@ Content-Type: application/json
 
 
 GET http://localhost:3000/staffs/
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJpYXQiOjE3NDA5MjQwNjQsImV4cCI6MTc0MDkyNDI0NH0.lFBUcnFxiqCwEgeZPtC91QaGz818fGNYd2ofozdmRsU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2UyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzQxMDA0NzA5LCJleHAiOjE3NDEwMDQ4ODl9.YvRFGWkaD-II9pOIMwIUGMskRgwoWnVUET6mJ3rMOHA
