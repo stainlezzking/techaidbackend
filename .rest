@@ -1,15 +1,24 @@
-POST http://localhost:3000/staffs/login
+POST http://localhost:3000/staffs/validate/credentials
 Content-Type: application/json
 
 {
   "fullname": "John Doe",
   "email": "johndoe2@example.com",
   "department": "IT",
-  "password": "securePass123"
+  "password" : "password0$"
 }
 
 ###
+POST http://localhost:3000/staffs/register
+Content-Type: application/json
 
+{
+  "data" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huZG9lMkBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJJVlJVQU5SUUtWVURJTzNTT04yRzZJMkdPTkpGVTVKM0dOUkZPUDJNT040RUFVREdPSllRIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiZXhwaXJhdGlvbiI6NjAwLCJpYXQiOjE3NDEwNDA0MTQsImV4cCI6MTc0MTA0MTAxNH0.yup765h8cXHsAOe5H2Xlou9gcnbfzh00ZOoTRDo2mio",
+  "code" : "052204"
+}
+
+
+###
 
 GET http://localhost:3000/staffs/
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2UyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzQxMDA0NzA5LCJleHAiOjE3NDEwMDQ4ODl9.YvRFGWkaD-II9pOIMwIUGMskRgwoWnVUET6mJ3rMOHA

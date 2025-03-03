@@ -1,11 +1,16 @@
 import mongoose, { Schema, Document } from "mongoose";
 import bcrypt from "bcryptjs";
+import { generate2FACode } from "../utils/2FA";
 
 interface IUser extends Document {
   fullname: string;
   email: string;
   department: string;
   password: string;
+  twoFactorSecret: {
+    secret: string;
+    encoding: string;
+  };
   url?: string;
   tickets: mongoose.Types.ObjectId[];
   role: "user" | "admin" | "support";
@@ -35,6 +40,10 @@ const UserSchema = new Schema<IUser>(
       minlength: [6, "Password must be at least 6 characters long."],
       select: false,
     },
+    twoFactorSecret: {
+      secret: { type: String, select: false },
+      encoding: { type: String, select: false },
+    },
     url: String,
     tickets: [
       {
@@ -53,9 +62,9 @@ const UserSchema = new Schema<IUser>(
 
 // Hash password before saving
 UserSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next(); // Skip hashing if password isn't modified
-
-  this.password = await bcrypt.hash(this.password, 10);
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
   next();
 });
 
