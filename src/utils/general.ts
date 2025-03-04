@@ -8,7 +8,8 @@ export default interface CreadentialsCheckpayload extends StaffSignupType {
 }
 import { StaffSignupType } from "../validator/staffschema";
 import { NextFunction, Request, Response } from "express";
-export const signJwtToken = function (payload: { email: string; role: string }, exp: number) {
+
+export const signJwtToken = function (payload: { email: string; role: string; _id: string }, exp: number) {
   return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET!, { expiresIn: exp });
 };
 

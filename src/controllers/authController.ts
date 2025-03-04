@@ -5,7 +5,7 @@ import { User } from "../config/db";
 import CreadentialsCheckPayload, { signJwtCredentialValidation, signJwtToken, verifyJwtToken } from "../utils/general";
 import { generate2FACode, generateQrcodeURL, verify2FAToken } from "../utils/2FA";
 
-const TOKEN_DURATION = 60 * 3;
+const TOKEN_DURATION = 60 * 20;
 
 export const CredentialsValidation = async function (req: Request, res: Response) {
   const validationResult = staffSignupSchema.safeParse(req.body);
@@ -60,7 +60,7 @@ export const SignUpController = async (req: Request, res: Response) => {
   // password is being hashed on presave
   const newStaff = await User.create({ fullname, email, department, password, twoFactorSecret: secret });
   const { password: pass, ...user } = newStaff.toObject();
-  const token = signJwtToken({ email, role: user.role }, TOKEN_DURATION);
+  const token = signJwtToken({ email, role: user.role, _id: newStaff._id as string }, TOKEN_DURATION);
   res.status(201).json({
     success: true,
     message: "Registered successfully",
@@ -105,7 +105,7 @@ export const Login2FAController = async function (req: Request, res: Response) {
     });
     return;
   }
-  const token = signJwtToken({ email: user!.email, role: user!.role }, TOKEN_DURATION);
+  const token = signJwtToken({ email: user!.email, role: user!.role, _id: user!._id as string }, TOKEN_DURATION);
   res.status(200).json({
     success: true,
     user,

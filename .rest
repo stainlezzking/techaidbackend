@@ -35,5 +35,15 @@ Content-Type: application/json
 
 {
  "user" : {"email" : "johndoe2@example.com"},
- "code" : "142264"
+ "code" : "366228"
+}
+
+###
+
+GET http://localhost:3000/staffs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2UyQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJfaWQiOiI2N2M2MmQ3NGUzNjUyMzRhY2ExYzc5NmUiLCJpYXQiOjE3NDEwNzY2NjgsImV4cCI6MTc0MTA3Njg0OH0.bZ1jjhgicMjiPTyFs3xtqXd9VpJ5F07c7gu9ufqKR3w
+
+{
+  "email": "johndoe2@example.com",
+  "password" : "password0$"
 }
