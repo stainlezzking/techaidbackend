@@ -7,6 +7,7 @@ export default interface CreadentialsCheckpayload extends StaffSignupType {
   };
 }
 import { StaffSignupType } from "../validator/staffschema";
+import { NextFunction, Request, Response } from "express";
 export const signJwtToken = function (payload: { email: string; role: string }, exp: number) {
   return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET!, { expiresIn: exp });
 };
@@ -22,4 +23,10 @@ export const verifyJwtToken = function (token: string) {
   } catch (error) {
     return false;
   }
+};
+
+export const asyncHandler = (fn: Function) => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
 };
