@@ -1,6 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
 import bcrypt from "bcryptjs";
-import { generate2FACode } from "../utils/2FA";
 
 interface IUser extends Document {
   fullname: string;

@@ -1,4 +1,4 @@
-POST http://localhost:3000/staffs/validate/credentials
+POST http://localhost:3000/auth/credentials
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/staffs/register
+POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
@@ -20,5 +20,20 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/staffs/
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2UyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzQxMDA0NzA5LCJleHAiOjE3NDEwMDQ4ODl9.YvRFGWkaD-II9pOIMwIUGMskRgwoWnVUET6mJ3rMOHA
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "johndoe2@example.com",
+  "password" : "password0$"
+}
+
+#### 
+
+POST http://localhost:3000/auth//2FA/login_validation
+Content-Type: application/json
+
+{
+ "user" : {"email" : "johndoe2@example.com"},
+ "code" : "142264"
+}
