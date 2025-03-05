@@ -1,9 +1,86 @@
+ //"email": "admin@example.com",
+// token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJfaWQiOiI2N2M3NTdmOWM4N2M0MmQ4YThiNzRjNWMiLCJpYXQiOjE3NDExMTc0MzQsImV4cCI6MTc0MTExODYzNH0.LOqxrrtN66YiVUgom21YaCNkunlPSYLrJe6kFtEKVVc
+//-- Support 
+//"email": "kelechisupport@example.com",
+//token-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6IktlbGVjaGkgU3VwcG9ydCIsImVtYWlsIjoia2VsZWNoaXN1cHBvcnRAZXhhbXBsZS5jb20iLCJkZXBhcnRtZW50IjoiSVQiLCJwYXNzd29yZCI6InBhc3N3b3JkMCQiLCJzZWNyZXQiOnsic2VjcmV0IjoiR1paRTI1RDJJWVpTQ1ZDUExKM1RVMkRETUZJWFNaM0ZLWjNVTUxaSk01QVhVWjNCRU5CUSIsImVuY29kaW5nIjoiYmFzZTMyIn0sImlhdCI6MTc0MTExNzU1NSwiZXhwIjoxNzQxMTE4MTU1fQ.lAiAdqGqxPy4WdKVO8Q5N_L3tLJJWev2XJRUHucRlmI
+
+// email -   "email": "olaupport@example.com",
+// token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6Ik9sYSBTdXBwb3J0IiwiZW1haWwiOiJvbGF1cHBvcnRAZXhhbXBsZS5jb20iLCJkZXBhcnRtZW50IjoiSVQiLCJwYXNzd29yZCI6InBhc3N3b3JkMCQiLCJzZWNyZXQiOnsic2VjcmV0IjoiTE5ER1laU1FHRVVDNE5DWUpaS0U2WFNST0paVUlOMkRGNUdUSUtLTkZSMkQ0T0xVTlozQSIsImVuY29kaW5nIjoiYmFzZTMyIn0sImlhdCI6MTc0MTExNzYyNSwiZXhwIjoxNzQxMTE4MjI1fQ.0ikKKjBv6WXKB8dTeiamSnT3klUru25yXiROdfDkB5s
+
+//--- users----
+// email -   "email": "emmanueluser@example.com",
+//token- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtbWFudWVsdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YTJjODdjNDJkOGE4Yjc0YzY5IiwiaWF0IjoxNzQxMTQ5MjIxLCJleHAiOjE3NDExNTA0MjF9.kMQQKv4UQm8Eew07fq7hlp7XgFs0aJMJmeOgW5LLx-M
+
+//  "email": "gafaruser@example.com",
+//token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6IkdhZmFyIHVzZXIiLCJlbWFpbCI6ImdhZmFydXNlckBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJONFFXV1dSUVBKR0NDTEI3SVlWQ0dWMktLNFpVMjJKR0ZFVUNJTkNISEJYRzQ2SllORlNBIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxMTE3ODY4LCJleHAiOjE3NDExMTg0Njh9.24V5JYcM80ewh8ICW8WIPTcO5uY5aHYxfv56vOsfaQ0
+
+// "email": "princessuser@example.com",
+//token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6InByaW5jZXNzIHVzZXIiLCJlbWFpbCI6InByaW5jZXNzdXNlckBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJQRVFUQVJEWEpWWFdLTDNXS1pKQ0tKRDVISjVIQVpCMk5GVFM0TUxFTjQ0R0lPWkdLWk1BIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxMTE3OTMxLCJleHAiOjE3NDExMTg1MzF9.wbYduQTMQUoyi-Kd5V1u_sU3vL3LsM8CVnSobF9oZIw
+
+
+POST http://localhost:3000/auth/2FA/login_validation
+Content-Type: application/json
+
+{
+   "user": {
+    "email": "emmanueluser@example.com",
+    "password": "password0$"
+  },
+  "code" : "12345"
+}
+
+###
+
+
+POST http://localhost:3000/ticket/new
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtbWFudWVsdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YTJjODdjNDJkOGE4Yjc0YzY5IiwiaWF0IjoxNzQxMTQ5MjIxLCJleHAiOjE3NDExNTA0MjF9.kMQQKv4UQm8Eew07fq7hlp7XgFs0aJMJmeOgW5LLx-M
+
+{
+   "title": "Printer Not Working",
+    "description": "The office printer is not responding to any print commands. Tried restarting it, but no luck.",
+    "priority": "high"
+}
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####
+
 POST http://localhost:3000/auth/credentials
 Content-Type: application/json
 
 {
-  "fullname": "John Doe",
-  "email": "johndoe2@example.com",
+  "fullname": "princess user",
+  "email": "princessuser@example.com",
   "department": "IT",
   "password" : "password0$"
 }
@@ -13,7 +90,7 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "data" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huZG9lMkBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJJVlJVQU5SUUtWVURJTzNTT04yRzZJMkdPTkpGVTVKM0dOUkZPUDJNT040RUFVREdPSllRIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiZXhwaXJhdGlvbiI6NjAwLCJpYXQiOjE3NDEwNDA0MTQsImV4cCI6MTc0MTA0MTAxNH0.yup765h8cXHsAOe5H2Xlou9gcnbfzh00ZOoTRDo2mio",
+  "data" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6InByaW5jZXNzIHVzZXIiLCJlbWFpbCI6InByaW5jZXNzdXNlckBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJQRVFUQVJEWEpWWFdLTDNXS1pKQ0tKRDVISjVIQVpCMk5GVFM0TUxFTjQ0R0lPWkdLWk1BIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxMTE3OTMxLCJleHAiOjE3NDExMTg1MzF9.wbYduQTMQUoyi-Kd5V1u_sU3vL3LsM8CVnSobF9oZIw",
   "code" : "052204"
 }
 
