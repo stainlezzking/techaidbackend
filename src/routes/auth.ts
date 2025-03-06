@@ -12,7 +12,7 @@ router.post("/login", express.json(), asyncHandler(LoginController));
 router.use((err: any, req: Request, res: Response, next: NextFunction) => {
   if (err.name === "ValidationError") {
     const errors = Object.values(err.errors).map((e: any) => e.message);
-    res.status(400).json({ success: false, error: errors });
+    res.status(400).json({ success: false, error: errors[0] });
     return;
   }
   res.status(500).json({ success: false, message: "An Error Occured on the server", error: err.message });

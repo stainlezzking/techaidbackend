@@ -10,6 +10,7 @@ interface IUser extends Document {
     secret: string;
     encoding: string;
   };
+  availability: "online" | "busy" | "Offline";
   url?: string;
   tickets: mongoose.Types.ObjectId[];
   role: "user" | "admin" | "support";
@@ -43,6 +44,7 @@ const UserSchema = new Schema<IUser>(
       secret: { type: String, select: false },
       encoding: { type: String, select: false },
     },
+    availability: { type: String, enum: ["online", "busy", "Offline"] },
     url: String,
     tickets: [
       {
@@ -68,3 +70,4 @@ UserSchema.pre("save", async function (next) {
 });
 
 export { UserSchema, IUser };
+export const User = mongoose.model<IUser>("User", UserSchema);

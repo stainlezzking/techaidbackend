@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { User } from "../config/db";
+import { User } from "../models/usermodel";
 
 export const getUserById = async function (req: Request, res: Response) {
   const user = await User.findById(req.body.id);
@@ -18,7 +18,8 @@ export const getUserByEmail = async function (req: Request, res: Response) {
 };
 
 export const editMySelf = async function (req: Request, res: Response) {
-  await User.updateOne({ email: req.body.email }, req.body);
+  const { password, twoFactorSecret, email, role, ...possibleUpdates } = req.body;
+  await User.updateOne({ email: req.body.email }, possibleUpdates);
   res.json({
     success: true,
     message: "Profile updated successfully",

@@ -1,22 +1,15 @@
-import { Request, Response } from "express";
-import { AutomatedTicketSystem, Ticket } from "../models/ticketmodel";
+import { Ticket } from "../models/ticketmodel";
 import { AutomatedTicketSystemFxn } from "../utils/general";
-
-declare module "express-serve-static-core" {
-  interface Request {
-    user?: {
-      email: string;
-      role: string;
-      _id: string;
-    };
-  }
-}
+// import { AuthenticatedRequest } from "@types/user.d";
+import { User } from "../models/usermodel";
+import { Response } from "express";
+import { AuthenticatedRequest } from "../@types/user";
 
 /*
 @All autheticated users have this permission
 @users
 */
-export const getMyTickets = async function (req: Request, res: Response) {
+export const getMyTickets = async function (req: AuthenticatedRequest, res: Response) {
   //   const ticket = await Ticket.find({ userId: req.user!._id });
   //   res.json({ success: true, data: ticket });
   return;
@@ -27,9 +20,8 @@ export const getMyTickets = async function (req: Request, res: Response) {
 Create Ticket
 */
 // I need to automatically assign the ticket to support staffs
-export const createNewTicket = async function (req: Request, res: Response) {
+export const createNewTicket = async function (req: AuthenticatedRequest, res: Response) {
   const { title, description, priority } = req.body;
-
   const { ticketSystem, assingedStaffId } = await AutomatedTicketSystemFxn();
   const newTicket = {
     title,
@@ -45,17 +37,45 @@ export const createNewTicket = async function (req: Request, res: Response) {
 /*
 all @authenticated users
 */
-export const addNoteToTicket = async function (req: Request, res: Response) {};
+export const addNoteToTicket = async function (req: AuthenticatedRequest, res: Response) {
+  const { ticketId } = req.params;
+  const { message } = req.body;
+
+  const user = await User.findById(req.user!._id);
+
+  if (!message) {
+    res.status(400).json({ error: "Message is required" });
+    return;
+  }
+
+  const ticket = await Ticket.findById(ticketId);
+  if (!ticket) {
+    res.status(404).json({ success: false, error: "This ticket was not found" });
+    return;
+  }
+  ticket.notes!.push({
+    id: user!.id,
+    name: user!.fullname,
+    message,
+  });
+
+  await ticket.save();
+
+  res.status(200).json({ success: true, message: "Note added successfully", ticket });
+};
 
 /*
  @suppport
 */
-export const myAssignedSupport = async function (req: Request, res: Response) {};
+export const myAssignedSupport = async function (req: AuthenticatedRequest, res: Response) {
+  const tickets = await Ticket.find({ user: req.user!._id });
+  res.status(200).json({ success: true, tickets });
+};
 
 /*
 @admin and @support
 */
-export const updateTicketStatus = async function (req: Request, res: Response) {
+export const updateTicketStatus = async function (req: AuthenticatedRequest, res: Response) {
   // after closing a ticket
   //update the automatedSystem on the support openstatus
   // const newTicket = {title, description, priority, userId : req.user!._id, }

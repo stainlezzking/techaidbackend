@@ -1,9 +1,9 @@
 import { Request, RequestHandler, Response } from "express";
 import { StaffSignupType, staffSignupSchema, staffLoginType, staffLoginSchema } from "../validator/staffschema";
 import bcrypt from "bcryptjs";
-import { User } from "../config/db";
 import CreadentialsCheckPayload, { signJwtCredentialValidation, signJwtToken, verifyJwtToken } from "../utils/general";
 import { generate2FACode, generateQrcodeURL, verify2FAToken } from "../utils/2FA";
+import { User } from "../models/usermodel";
 
 const TOKEN_DURATION = 60 * 20;
 
