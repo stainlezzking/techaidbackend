@@ -44,13 +44,13 @@ export const addNoteToTicket = async function (req: AuthenticatedRequest, res: R
   const user = await User.findById(req.user!._id);
 
   if (!message) {
-    res.status(400).json({ error: "Message is required" });
+    res.json({ error: "Message is required" });
     return;
   }
 
   const ticket = await Ticket.findById(ticketId);
   if (!ticket) {
-    res.status(404).json({ success: false, error: "This ticket was not found" });
+    res.json({ success: false, error: "This ticket was not found" });
     return;
   }
   ticket.notes!.push({
@@ -61,7 +61,7 @@ export const addNoteToTicket = async function (req: AuthenticatedRequest, res: R
 
   await ticket.save();
 
-  res.status(200).json({ success: true, message: "Note added successfully", ticket });
+  res.json({ success: true, message: "Note added successfully", ticket });
 };
 
 /*
@@ -69,7 +69,7 @@ export const addNoteToTicket = async function (req: AuthenticatedRequest, res: R
 */
 export const myAssignedSupport = async function (req: AuthenticatedRequest, res: Response) {
   const tickets = await Ticket.find({ user: req.user!._id });
-  res.status(200).json({ success: true, tickets });
+  res.json({ success: true, tickets });
 };
 
 /*

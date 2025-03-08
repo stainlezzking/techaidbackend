@@ -10,14 +10,21 @@ const TOKEN_DURATION = 60 * 20;
 export const CredentialsValidation = async function (req: Request, res: Response) {
   const validationResult = staffSignupSchema.safeParse(req.body);
   if (!validationResult.success) {
-    res.status(400).json({ success: false, errors: validationResult.error.format() });
+    let errors = [] as any;
+    const allErrors = validationResult.error.format() as any;
+    delete allErrors._errors;
+    Object.keys(allErrors).map((props: string | number) => {
+      errors = errors.concat(allErrors[props]._errors);
+      return props;
+    });
+    res.json({ success: false, error: errors });
     return;
   }
 
   const { email } = validationResult.data as StaffSignupType;
   const userexists = await User.findOne({ email });
   if (userexists) {
-    res.status(409).json({ success: false, message: "A user exists with this Email " });
+    res.json({ success: false, message: "A user exists with this Email " });
     return;
   }
 
@@ -33,6 +40,7 @@ export const CredentialsValidation = async function (req: Request, res: Response
 
 export const SignUpController = async (req: Request, res: Response) => {
   const { data: hash, code } = req.body;
+  console.log(req.body);
   if (!req.body.data || !verifyJwtToken(hash)) {
     res.json({
       success: false,
@@ -54,14 +62,14 @@ export const SignUpController = async (req: Request, res: Response) => {
 
   const userexists = await User.findOne({ email });
   if (userexists) {
-    res.status(409).json({ success: false, message: "A user exists with this Email " });
+    res.json({ success: false, message: "A user exists with this Email " });
     return;
   }
   // password is being hashed on presave
   const newStaff = await User.create({ fullname, email, department, password, twoFactorSecret: secret });
-  const { password: pass, ...user } = newStaff.toObject();
+  const { password: pass, twoFactorSecret, ...user } = newStaff.toObject();
   const token = signJwtToken({ email, role: user.role, _id: newStaff._id as string }, TOKEN_DURATION);
-  res.status(201).json({
+  res.json({
     success: true,
     message: "Registered successfully",
     user,
@@ -71,24 +79,25 @@ export const SignUpController = async (req: Request, res: Response) => {
 };
 
 export const LoginController = async function (req: Request, res: Response) {
+  console.log(req.body);
   const validationResult = staffLoginSchema.safeParse(req.body);
   if (!validationResult.success) {
-    res.status(400).json({ success: false, errors: validationResult.error.format() });
+    res.json({ success: false, errors: validationResult.error.format() });
     return;
   }
   const { email, password } = validationResult.data as staffLoginType;
   const user = await User.findOne({ email }, "+password");
   if (!user) {
-    res.status(409).json({ success: false, message: "Incorrect Username or password" });
+    res.json({ success: false, message: "Incorrect email or password" });
     return;
   }
 
   if (!(await bcrypt.compare(password, user.password))) {
-    res.status(401).json({ success: false, message: "Incorrect Username or Password" });
+    res.json({ success: false, message: "Incorrect email or Password" });
     return;
   }
 
-  res.status(200).json({
+  res.json({
     success: true,
     user: { email, password },
   });
@@ -96,7 +105,7 @@ export const LoginController = async function (req: Request, res: Response) {
   return;
 };
 export const Login2FAController = async function (req: Request, res: Response) {
-  const { user: userResponse, code } = req.body;
+  const { data: userResponse, code } = req.body;
   const user = await User.findOne({ email: userResponse.email }, "+twoFactorSecret.secret");
   if (!verify2FAToken(user!.twoFactorSecret.secret, code)) {
     res.json({
@@ -106,7 +115,7 @@ export const Login2FAController = async function (req: Request, res: Response) {
     return;
   }
   const token = signJwtToken({ email: user!.email, role: user!.role, _id: user!._id as string }, TOKEN_DURATION);
-  res.status(200).json({
+  res.json({
     success: true,
     user,
     token,

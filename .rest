@@ -23,7 +23,7 @@ Content-Type: application/json
 
 {
    "user": {
-    "email": "emmanueluser@example.com",
+    "email": "gafaruser@example.com",
     "password": "password0$"
   },
   "code" : "12345"
@@ -31,17 +31,40 @@ Content-Type: application/json
 
 ###
 
-
+## emma new ticket
 POST http://localhost:3000/ticket/new
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtbWFudWVsdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YTJjODdjNDJkOGE4Yjc0YzY5IiwiaWF0IjoxNzQxMTQ5MjIxLCJleHAiOjE3NDExNTA0MjF9.kMQQKv4UQm8Eew07fq7hlp7XgFs0aJMJmeOgW5LLx-M
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtbWFudWVsdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YTJjODdjNDJkOGE4Yjc0YzY5IiwiaWF0IjoxNzQxMTUyNjg1LCJleHAiOjE3NDExNTM4ODV9._OcLVLthobQfmCzqLEy79tiO_33IP5bHhV-Yc4EhiII
 
 {
-   "title": "Printer Not Working",
-    "description": "The office printer is not responding to any print commands. Tried restarting it, but no luck.",
+    "title": "Email Access Issue",
+    "description": "Unable to log into my company email account. It says 'invalid credentials' even after resetting the password.",
     "priority": "high"
 }
 
+###
+## gaffa new ticket
+POST http://localhost:3000/ticket/new
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhZmFydXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YzFjODdjNDJkOGE4Yjc0YzZkIiwiaWF0IjoxNzQxMTUzMTYxLCJleHAiOjE3NDExNTQzNjF9.O1doI0DEn0tDeD_VlcxjHWWFBUYI66WfhgjNbumPXEQ
+
+{
+   "title": "Laptop Battery Draining Quickly",
+  "description": "The laptop battery drains within an hour even after a full charge. Suspecting a battery issue or background processes consuming power.",
+  "priority": "mid"
+}
+
+###
+## princess new ticket
+POST http://localhost:3000/ticket/new
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByaW5jZXNzdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzVhZWJjODdjNDJkOGE4Yjc0YzcxIiwiaWF0IjoxNzQxMTUxNzg0LCJleHAiOjE3NDExNTI5ODR9.l26vDeQPIzZnGtUC12LgToD0-dsuRW-5-OML71e0nY8
+
+ {
+    "title": "Software Installation Request  2",
+    "description": "Requesting installation of the latest version of Photoshop on my work computer.",
+    "priority": "low"
+  }
 ###
 
 
@@ -75,7 +98,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtbWFudWVsdXNl
 
 ####
 
-POST http://localhost:3000/auth/credentials
+POST http://localhost:4000/auth/credentials
 Content-Type: application/json
 
 {
