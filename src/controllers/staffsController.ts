@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import { User } from "../models/usermodel";
+import { AuthenticatedRequest } from "../@types/user";
 
-export const getUserById = async function (req: Request, res: Response) {
-  const user = await User.findById(req.body.id);
+export const getUserById = async function (req: AuthenticatedRequest, res: Response) {
+  const user = await User.findById(req.user!._id);
   res.json({
     success: true,
     user,
