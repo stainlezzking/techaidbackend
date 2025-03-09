@@ -10,8 +10,8 @@ import { AuthenticatedRequest } from "../@types/user";
 @users
 */
 export const getMyTickets = async function (req: AuthenticatedRequest, res: Response) {
-  //   const ticket = await Ticket.find({ userId: req.user!._id });
-  //   res.json({ success: true, data: ticket });
+  const ticket = await Ticket.find({ userId: req.user!._id });
+  res.json({ success: true, data: ticket });
   return;
 };
 
