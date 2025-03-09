@@ -16,6 +16,17 @@ export const getMyTickets = async function (req: AuthenticatedRequest, res: Resp
 };
 
 /*
+@All autheticated users have this permission
+@users
+this should also make sure that it is a user that createf the ticket requesting it
+*/
+export const getTicketById = async function (req: AuthenticatedRequest, res: Response) {
+  const ticket = await Ticket.findById(req.params.id).populate("assignedTo userId");
+  res.json({ success: true, data: ticket });
+  return;
+};
+
+/*
 @users
 Create Ticket
 */
@@ -38,7 +49,7 @@ export const createNewTicket = async function (req: AuthenticatedRequest, res: R
 all @authenticated users
 */
 export const addNoteToTicket = async function (req: AuthenticatedRequest, res: Response) {
-  const { ticketId } = req.params;
+  const { id: ticketId } = req.params;
   const { message } = req.body;
 
   const user = await User.findById(req.user!._id);
@@ -61,7 +72,7 @@ export const addNoteToTicket = async function (req: AuthenticatedRequest, res: R
 
   await ticket.save();
 
-  res.json({ success: true, message: "Note added successfully", ticket });
+  res.json({ success: true, message: "Note added successfully", notes: ticket.notes });
 };
 
 /*
