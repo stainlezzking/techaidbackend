@@ -38,11 +38,9 @@ export const AutomatedTicketSystemFxn = async function () {
   const assingedStaffId = ticketSystem!.supportStaffs[ticketSystem!.currentIndex].supportId;
   const lastIndex = ticketSystem!.currentIndex >= ticketSystem!.supportStaffs.length - 1;
   //  getting the next index for staff to be assigned new ticket
-  const nextIndex = lastIndex
-    ? ticketSystem!.supportStaffs.find((system) => system.index == 0)!.index
-    : ticketSystem!.supportStaffs.find((system) => system.index == ticketSystem!.currentIndex + 1)!.index;
+  const nextIndex = lastIndex? 0 : ticketSystem!.currentIndex + 1;
   // updating the assigned staffs open index
-  ticketSystem!.supportStaffs.find((system) => system.index == ticketSystem!.currentIndex)!.openTickets++;
+  ticketSystem!.supportStaffs[ticketSystem!.currentIndex].openTickets++;
   // updating the systems current index
   ticketSystem!.currentIndex = nextIndex;
   return { ticketSystem, assingedStaffId };

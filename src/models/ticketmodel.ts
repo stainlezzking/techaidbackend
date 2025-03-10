@@ -50,4 +50,4 @@ const AutomatedSystemSchema = new Schema<ITicketAuto>({
 });
 
 export const AutomatedTicketSystem = model<ITicketAuto>("automatedSystem", AutomatedSystemSchema);
-export const Ticket = model<ITicket>("Ticket", TicketSchema);
+export const Ticket = model<ITicket>("Ticket", TicketSchema)

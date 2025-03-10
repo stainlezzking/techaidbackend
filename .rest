@@ -1,23 +1,3 @@
- //"email": "admin@example.com",
-// token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJfaWQiOiI2N2M3NTdmOWM4N2M0MmQ4YThiNzRjNWMiLCJpYXQiOjE3NDExMTc0MzQsImV4cCI6MTc0MTExODYzNH0.LOqxrrtN66YiVUgom21YaCNkunlPSYLrJe6kFtEKVVc
-//-- Support 
-//"email": "kelechisupport@example.com",
-//token-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6IktlbGVjaGkgU3VwcG9ydCIsImVtYWlsIjoia2VsZWNoaXN1cHBvcnRAZXhhbXBsZS5jb20iLCJkZXBhcnRtZW50IjoiSVQiLCJwYXNzd29yZCI6InBhc3N3b3JkMCQiLCJzZWNyZXQiOnsic2VjcmV0IjoiR1paRTI1RDJJWVpTQ1ZDUExKM1RVMkRETUZJWFNaM0ZLWjNVTUxaSk01QVhVWjNCRU5CUSIsImVuY29kaW5nIjoiYmFzZTMyIn0sImlhdCI6MTc0MTExNzU1NSwiZXhwIjoxNzQxMTE4MTU1fQ.lAiAdqGqxPy4WdKVO8Q5N_L3tLJJWev2XJRUHucRlmI
-
-// email -   "email": "olaupport@example.com",
-// token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6Ik9sYSBTdXBwb3J0IiwiZW1haWwiOiJvbGF1cHBvcnRAZXhhbXBsZS5jb20iLCJkZXBhcnRtZW50IjoiSVQiLCJwYXNzd29yZCI6InBhc3N3b3JkMCQiLCJzZWNyZXQiOnsic2VjcmV0IjoiTE5ER1laU1FHRVVDNE5DWUpaS0U2WFNST0paVUlOMkRGNUdUSUtLTkZSMkQ0T0xVTlozQSIsImVuY29kaW5nIjoiYmFzZTMyIn0sImlhdCI6MTc0MTExNzYyNSwiZXhwIjoxNzQxMTE4MjI1fQ.0ikKKjBv6WXKB8dTeiamSnT3klUru25yXiROdfDkB5s
-
-//--- users----
-// email -   "email": "emmanueluser@example.com",
-//token- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtbWFudWVsdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YTJjODdjNDJkOGE4Yjc0YzY5IiwiaWF0IjoxNzQxMTQ5MjIxLCJleHAiOjE3NDExNTA0MjF9.kMQQKv4UQm8Eew07fq7hlp7XgFs0aJMJmeOgW5LLx-M
-
-//  "email": "gafaruser@example.com",
-//token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6IkdhZmFyIHVzZXIiLCJlbWFpbCI6ImdhZmFydXNlckBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJONFFXV1dSUVBKR0NDTEI3SVlWQ0dWMktLNFpVMjJKR0ZFVUNJTkNISEJYRzQ2SllORlNBIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxMTE3ODY4LCJleHAiOjE3NDExMTg0Njh9.24V5JYcM80ewh8ICW8WIPTcO5uY5aHYxfv56vOsfaQ0
-
-// "email": "princessuser@example.com",
-# 
-
-//token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6InByaW5jZXNzIHVzZXIiLCJlbWFpbCI6InByaW5jZXNzdXNlckBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJQRVFUQVJEWEpWWFdLTDNXS1pKQ0tKRDVISjVIQVpCMk5GVFM0TUxFTjQ0R0lPWkdLWk1BIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxMTE3OTMxLCJleHAiOjE3NDExMTg1MzF9.wbYduQTMQUoyi-Kd5V1u_sU3vL3LsM8CVnSobF9oZIw
 
 POST http://localhost:4000/auth/2FA/login_validation
 Content-Type: application/json
@@ -45,22 +25,25 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lbmFzb21ldGhp
 }
 
 
+# 1. 67ce528b3a6854294aa1ae60
+# 2. 67ce52d03a6854294aa1ae64
+# 3. 67ce528b3a6854294aa1ae60
+# 4. 67ce52d03a6854294aa1ae64
 
-
-### emma new ticket
-POST http://localhost:3000/ticket/new
+### userone
+POST http://localhost:4000/ticket/new
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtbWFudWVsdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YTJjODdjNDJkOGE4Yjc0YzY5IiwiaWF0IjoxNzQxMTUyNjg1LCJleHAiOjE3NDExNTM4ODV9._OcLVLthobQfmCzqLEy79tiO_33IP5bHhV-Yc4EhiII
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vcmFnYWZhckBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIl9pZCI6IjY3Y2U1MzlhM2E2ODU0Mjk0YWExYWU2OCIsImlhdCI6MTc0MTU3NTA2NywiZXhwIjoxNzQxNTc4NjY3fQ.lwEvm_8fGCpPrqNGxe2BnoauKRgpKIU2F9ESPbWgUtk
 
 {
-    "title": "Email Access Issue",
+    "title": "Email Access Issue 4",
     "description": "Unable to log into my company email account. It says 'invalid credentials' even after resetting the password.",
     "priority": "high"
 }
 
 ###
 ## gaffa new ticket
-POST http://localhost:3000/ticket/new
+POST http://localhost:4000/ticket/new
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhZmFydXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YzFjODdjNDJkOGE4Yjc0YzZkIiwiaWF0IjoxNzQxMTUzMTYxLCJleHAiOjE3NDExNTQzNjF9.O1doI0DEn0tDeD_VlcxjHWWFBUYI66WfhgjNbumPXEQ
 
@@ -72,12 +55,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhZmFydXNlckBl
 
 ###
 ## princess new ticket
-POST http://localhost:3000/ticket/new
+POST http://localhost:4000/ticket/new
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByaW5jZXNzdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzVhZWJjODdjNDJkOGE4Yjc0YzcxIiwiaWF0IjoxNzQxMTUxNzg0LCJleHAiOjE3NDExNTI5ODR9.l26vDeQPIzZnGtUC12LgToD0-dsuRW-5-OML71e0nY8
 
  {
-    "title": "Software Installation Request  2",
+    "title": "Testing autosigned notification for support",
     "description": "Requesting installation of the latest version of Photoshop on my work computer.",
     "priority": "low"
   }
@@ -86,6 +69,19 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByaW5jZXNzdXNl
 
 
 
+###
+# Ola Walle
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYXdhbGxlQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjZTUyZDAzYTY4NTQyOTRhYTFhZTY0IiwiaWF0IjoxNzQxNTc0ODY1LCJleHAiOjE3NDE1Nzg0NjV9.FrXnnrW-xI2__Lanvb7WQrt-5gJmQ2y2HvJGsweyKK0
+
+###
+# David
+# davidfemi@gmail.com
+
+
+###
+# Mora Gafat
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vcmFnYWZhckBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsIl9pZCI6IjY3Y2U1MzlhM2E2ODU0Mjk0YWExYWU2OCIsImlhdCI6MTc0MTU3NTA2NywiZXhwIjoxNzQxNTc4NjY3fQ.lwEvm_8fGCpPrqNGxe2BnoauKRgpKIU2F9ESPbWgUtk
+# moragafar@gmail.com
 
 
 
@@ -94,49 +90,34 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByaW5jZXNzdXNl
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-####
+#### Register account
+# davidfemi@gmail.com
 
 POST http://localhost:4000/auth/credentials
 Content-Type: application/json
 
 {
-  "fullname": "princess user",
-  "email": "princessuser@example.com",
-  "department": "IT",
+  "fullname": "Mora gafar",
+  "email": "moragafar@gmail.com",
+  "department": "Questionaires",
   "password" : "password0$"
 }
 
 ###
-POST http://localhost:3000/auth/register
+
+
+POST http://localhost:4000/auth/register
 Content-Type: application/json
 
 {
-  "data" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6InByaW5jZXNzIHVzZXIiLCJlbWFpbCI6InByaW5jZXNzdXNlckBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJQRVFUQVJEWEpWWFdLTDNXS1pKQ0tKRDVISjVIQVpCMk5GVFM0TUxFTjQ0R0lPWkdLWk1BIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxMTE3OTMxLCJleHAiOjE3NDExMTg1MzF9.wbYduQTMQUoyi-Kd5V1u_sU3vL3LsM8CVnSobF9oZIw",
+  "data" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6Ik1vcmEgZ2FmYXIiLCJlbWFpbCI6Im1vcmFnYWZhckBnbWFpbC5jb20iLCJkZXBhcnRtZW50IjoiUXVlc3Rpb25haXJlcyIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJKVktHR1ZENU5WSlRNNEJKRU5VVkc2QjZQVVFVTTZKSU9WUkUySktOUEJaUzQzVFhPTlRRIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxNTc1MDQ3LCJleHAiOjE3NDE1NzU2NDd9.K4xfm1Awt9zBk86UoO0oNchQef5OhpBUki-7XrMn4LM",
   "code" : "052204"
 }
 
 
 ###
 
-POST http://localhost:3000/auth/login
+POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
@@ -146,7 +127,7 @@ Content-Type: application/json
 
 #### 
 
-POST http://localhost:3000/auth//2FA/login_validation
+POST http://localhost:4000/auth//2FA/login_validation
 Content-Type: application/json
 
 {
@@ -156,7 +137,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/staffs
+GET http://localhost:4000/staffs
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2UyQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJfaWQiOiI2N2M2MmQ3NGUzNjUyMzRhY2ExYzc5NmUiLCJpYXQiOjE3NDEwNzY2NjgsImV4cCI6MTc0MTA3Njg0OH0.bZ1jjhgicMjiPTyFs3xtqXd9VpJ5F07c7gu9ufqKR3w
 
 {

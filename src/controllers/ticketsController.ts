@@ -45,6 +45,10 @@ export const createNewTicket = async function (req: AuthenticatedRequest, res: R
     displayId: format(new Date(), "yyMMdd") + `${Date.now().toString().slice(0, 4)}`,
   };
   const [system, createdTicket] = await Promise.all([ticketSystem!.save(), Ticket.create(newTicket)]);
+  if(assingedStaffId){
+    const notification = `A new ticket with Id of ${newTicket.displayId} has been assigned to you`
+    SendNotification(createdTicket.id, assingedStaffId as any, notification);
+  }
   res.json({ success: true, message: "created a new Ticket", ticket: createdTicket });
 };
 
