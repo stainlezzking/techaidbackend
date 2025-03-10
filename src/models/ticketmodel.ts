@@ -10,6 +10,7 @@ export interface ITicket extends Document {
   notes?: [{ id: mongoose.Types.ObjectId; name: String; message: String }];
   priority: "low" | "mid" | "high";
   contactMethod: string;
+  displayId: string;
   category: string;
   createdAt: Date;
   updatedAt: Date;
@@ -26,6 +27,7 @@ const TicketSchema = new Schema<ITicket>(
     priority: { type: String, enum: ["low", "mid", "high"], default: "low" },
     category: String,
     contactMethod: String,
+    displayId: String,
     // this id in the note is to maintain consistency with the design, i want to be able
     // to be able to confirm if it is the current user that made it so i can write You:
     notes: [{ id: Schema.Types.ObjectId, name: String, message: String }],

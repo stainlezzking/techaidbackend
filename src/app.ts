@@ -6,6 +6,7 @@ import { connectDB } from "./config/db";
 import staffRouter from "./routes/staff";
 import authRouter from "./routes/auth";
 import ticketRouter from "./routes/ticket";
+import notRouter from "./routes/notification";
 import cors from "cors";
 
 const app = express();
@@ -16,6 +17,7 @@ connectDB().catch((e) => console.log("An error occured connecting to the DB"));
 app.use("/staffs", staffRouter);
 app.use("/auth", authRouter);
 app.use("/ticket", ticketRouter);
+app.use("/not", notRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log("server running "));

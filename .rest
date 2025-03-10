@@ -15,23 +15,39 @@
 //token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6IkdhZmFyIHVzZXIiLCJlbWFpbCI6ImdhZmFydXNlckBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJONFFXV1dSUVBKR0NDTEI3SVlWQ0dWMktLNFpVMjJKR0ZFVUNJTkNISEJYRzQ2SllORlNBIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxMTE3ODY4LCJleHAiOjE3NDExMTg0Njh9.24V5JYcM80ewh8ICW8WIPTcO5uY5aHYxfv56vOsfaQ0
 
 // "email": "princessuser@example.com",
+# 
+
 //token - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6InByaW5jZXNzIHVzZXIiLCJlbWFpbCI6InByaW5jZXNzdXNlckBleGFtcGxlLmNvbSIsImRlcGFydG1lbnQiOiJJVCIsInBhc3N3b3JkIjoicGFzc3dvcmQwJCIsInNlY3JldCI6eyJzZWNyZXQiOiJQRVFUQVJEWEpWWFdLTDNXS1pKQ0tKRDVISjVIQVpCMk5GVFM0TUxFTjQ0R0lPWkdLWk1BIiwiZW5jb2RpbmciOiJiYXNlMzIifSwiaWF0IjoxNzQxMTE3OTMxLCJleHAiOjE3NDExMTg1MzF9.wbYduQTMQUoyi-Kd5V1u_sU3vL3LsM8CVnSobF9oZIw
 
-
-POST http://localhost:3000/auth/2FA/login_validation
+POST http://localhost:4000/auth/2FA/login_validation
 Content-Type: application/json
 
 {
-   "user": {
-    "email": "gafaruser@example.com",
-    "password": "password0$"
+   "data": {
+    "email": "menasomething@gmail.com",
+    "password": "Password0$"
   },
   "code" : "12345"
 }
 
 ###
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lbmFzb21ldGhpbmdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJfaWQiOiI2N2NhYTNhOTk0MGFkMGZjYzVlOWU0YjYiLCJpYXQiOjE3NDE1NDEyNTcsImV4cCI6MTc0MTU0NDg1N30.4DqqK7p063cHNlPqkZmiaf-Bm0P-TFy6mp0ziQ0XUxk
 
-## emma new ticket
+
+#### mena add comment
+
+PUT http://localhost:4000/ticket/67cd135195a80ceeea67798a
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lbmFzb21ldGhpbmdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJfaWQiOiI2N2NhYTNhOTk0MGFkMGZjYzVlOWU0YjYiLCJpYXQiOjE3NDE1NDEyNTcsImV4cCI6MTc0MTU0NDg1N30.4DqqK7p063cHNlPqkZmiaf-Bm0P-TFy6mp0ziQ0XUxk
+
+{
+  "message" : "This is a message to test out notifications part 3"
+}
+
+
+
+
+### emma new ticket
 POST http://localhost:3000/ticket/new
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtbWFudWVsdXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiX2lkIjoiNjdjNzU5YTJjODdjNDJkOGE4Yjc0YzY5IiwiaWF0IjoxNzQxMTUyNjg1LCJleHAiOjE3NDExNTM4ODV9._OcLVLthobQfmCzqLEy79tiO_33IP5bHhV-Yc4EhiII

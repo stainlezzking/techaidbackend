@@ -4,13 +4,15 @@ import { AutomatedTicketSystemFxn } from "../utils/general";
 import { User } from "../models/usermodel";
 import { Response } from "express";
 import { AuthenticatedRequest } from "../@types/user";
+import { SendNotification } from "../utils/notifications";
+import { format } from "date-fns";
 
 /*
 @All autheticated users have this permission
 @users
 */
 export const getMyTickets = async function (req: AuthenticatedRequest, res: Response) {
-  const ticket = await Ticket.find({ userId: req.user!._id });
+  const ticket = await Ticket.find({ userId: req.user!._id }).populate("assignedTo", "fullname");
   res.json({ success: true, data: ticket });
   return;
 };
@@ -40,6 +42,7 @@ export const createNewTicket = async function (req: AuthenticatedRequest, res: R
     priority,
     userId: req.user!._id,
     assignedTo: assingedStaffId,
+    displayId: format(new Date(), "yyMMdd") + `${Date.now().toString().slice(0, 4)}`,
   };
   const [system, createdTicket] = await Promise.all([ticketSystem!.save(), Ticket.create(newTicket)]);
   res.json({ success: true, message: "created a new Ticket", ticket: createdTicket });
@@ -55,7 +58,7 @@ export const addNoteToTicket = async function (req: AuthenticatedRequest, res: R
   const user = await User.findById(req.user!._id);
 
   if (!message) {
-    res.json({ error: "Message is required" });
+    res.json({ success: false, error: "Message is required" });
     return;
   }
 
@@ -71,7 +74,16 @@ export const addNoteToTicket = async function (req: AuthenticatedRequest, res: R
   });
 
   await ticket.save();
-
+  const currenduserId = user!._id as any;
+  console.log(currenduserId.toString(), ticket.userId.toString(), ticket.assignedTo!.toString());
+  let recipientId = currenduserId.toString() == ticket.userId.toString() ? ticket.assignedTo : ticket.userId;
+  // displayId is a gimmick to match with the presentation
+  const displayId = ticket.displayId ? ticket.displayId : format(new Date(), "yyMMdd") + ticket.id.replace(/[^0-9]/g, "").substring(0, 4);
+  const notification = `${user!.fullname} left you a message on the ticket with Id ${displayId}`;
+  if (recipientId) {
+    // so if its not assigned, dont send the notification
+    SendNotification(ticketId, recipientId as any, notification);
+  }
   res.json({ success: true, message: "Note added successfully", notes: ticket.notes });
 };
 
