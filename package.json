@@ -37,8 +37,7 @@
     "@types/node": "^22.13.8",
     "@types/qrcode": "^1.5.5",
     "@types/speakeasy": "^2.0.10",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
+    "ts-node": "^10.9.2"
   },
   "engines": {
     "node": "20.x"

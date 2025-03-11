@@ -1,1 +1,1 @@
-web: npm run build && npm start
+web: npx tsc && node dist/server.js
