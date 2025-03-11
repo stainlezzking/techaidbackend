@@ -115,8 +115,8 @@ export const myAssignedSupport = async function (req: AuthenticatedRequest, res:
 */
 export const updateTicketStatus = async function (req: AuthenticatedRequest, res: Response) {
   // after closing a ticket
-  const { status, _id } = req.body;
-  const ticket = await Ticket.findByIdAndUpdate({ _id }, { status: status });
+  const { data: status, _id } = req.body;
+  const ticket = await Ticket.findByIdAndUpdate({ _id }, { status }, { new: true });
   if (status !== "in-progress") await updateSupportOpenTickets(status, req.user!._id.toString());
 
   //update the automatedSystem on the support openstatus and clonedStatus
@@ -134,7 +134,7 @@ export const updateTicketStatus = async function (req: AuthenticatedRequest, res
 };
 
 export const assignTicket = async function (req: AuthenticatedRequest, res: Response) {
-  const { email, ticketId, currentUserName } = req.body;
+  const { email, ticketId, name } = req.body;
   const supportUser = await User.findOne({ email, role: "support" });
   if (!supportUser) {
     res.json({ success: false, message: "No Engineer was found with the email" });
@@ -142,7 +142,7 @@ export const assignTicket = async function (req: AuthenticatedRequest, res: Resp
   }
   await Ticket.updateOne({ _id: ticketId }, { assignedTo: supportUser._id });
   await updateTicketReassigned(req.user!._id.toString(), supportUser.id);
-  const notification = `A ticket with was assigned to you from ${currentUserName}`;
+  const notification = `A ticket with was assigned to you from ${name}`;
   SendNotification(ticketId, supportUser.id as any, notification);
   res.json({ success: true, message: "Ticket re-assigned succefully" });
 };
