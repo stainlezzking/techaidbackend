@@ -11,7 +11,6 @@ export const generate2FACode = function () {
 };
 
 export const verify2FAToken = function (secret: string, token: string) {
-  return true;
   const valid = speakeasy.totp.verify({
     secret,
     encoding: "base32",
