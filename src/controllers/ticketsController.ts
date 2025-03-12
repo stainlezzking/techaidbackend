@@ -123,7 +123,7 @@ export const updateTicketStatus = async function (req: AuthenticatedRequest, res
   //update the automatedSystem on the support openstatus and clonedStatus
   // const newTicket = {title, description, priority, userId : req.user!._id, }
   if (status == "resolved") {
-    const notification = `Your ticket with id of ${ticket!.displayId} has been close, please leave a review`;
+    const notification = `Your ticket with id of ${ticket!.displayId} has been closed, please leave a review`;
     SendNotification(ticket!.id, ticket!.userId as any, notification);
     // notify the user that the ticket has been updated and they can leave a review
   }
