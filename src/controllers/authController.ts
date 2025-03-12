@@ -5,7 +5,7 @@ import CreadentialsCheckPayload, { signJwtCredentialValidation, signJwtToken, ve
 import { generate2FACode, generateQrcodeURL, verify2FAToken } from "../utils/2FA";
 import { User } from "../models/usermodel";
 
-const TOKEN_DURATION = 60 * 60;
+const TOKEN_DURATION = 60 * 60 * 24;
 
 export const CredentialsValidation = async function (req: Request, res: Response) {
   const validationResult = staffSignupSchema.safeParse(req.body);
