@@ -45,7 +45,7 @@ Create Ticket
 */
 // I need to automatically assign the ticket to support staffs
 export const createNewTicket = async function (req: AuthenticatedRequest, res: Response) {
-  const { title, description, priority } = req.body;
+  const { title, description, priority, contactMethod } = req.body;
   const { ticketSystem, assingedStaffId } = await AutomatedTicketSystemFxn();
   const newTicket = {
     title,
@@ -53,6 +53,7 @@ export const createNewTicket = async function (req: AuthenticatedRequest, res: R
     priority,
     userId: req.user!._id,
     assignedTo: assingedStaffId,
+    contactMethod,
     displayId: format(new Date(), "yyMMdd") + `${Date.now().toString().slice(0, 4)}`,
   };
   const [system, createdTicket] = await Promise.all([ticketSystem!.save(), Ticket.create(newTicket)]);
@@ -122,7 +123,7 @@ export const updateTicketStatus = async function (req: AuthenticatedRequest, res
   //update the automatedSystem on the support openstatus and clonedStatus
   // const newTicket = {title, description, priority, userId : req.user!._id, }
   if (status == "resolved") {
-    const notification = `Your ticket with id of ${ticket!.displayId} has be close, please leave a review`;
+    const notification = `Your ticket with id of ${ticket!.displayId} has been close, please leave a review`;
     SendNotification(ticket!.id, ticket!.userId as any, notification);
     // notify the user that the ticket has been updated and they can leave a review
   }
