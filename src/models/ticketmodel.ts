@@ -11,6 +11,7 @@ export interface ITicket extends Document {
   priority: "low" | "mid" | "high";
   contactMethod: string;
   displayId: string;
+  feedback: number;
   category: string;
   createdAt: Date;
   updatedAt: Date;
@@ -28,6 +29,7 @@ const TicketSchema = new Schema<ITicket>(
     category: String,
     contactMethod: String,
     displayId: String,
+    feedback: { type: Number, default: 0 },
     // this id in the note is to maintain consistency with the design, i want to be able
     // to be able to confirm if it is the current user that made it so i can write You:
     notes: [{ id: Schema.Types.ObjectId, name: String, message: String }],
@@ -50,4 +52,4 @@ const AutomatedSystemSchema = new Schema<ITicketAuto>({
 });
 
 export const AutomatedTicketSystem = model<ITicketAuto>("automatedSystem", AutomatedSystemSchema);
-export const Ticket = model<ITicket>("Ticket", TicketSchema)
+export const Ticket = model<ITicket>("Ticket", TicketSchema);

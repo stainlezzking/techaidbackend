@@ -147,3 +147,15 @@ export const assignTicket = async function (req: AuthenticatedRequest, res: Resp
   SendNotification(ticketId, supportUser.id as any, notification);
   res.json({ success: true, message: "Ticket re-assigned succefully" });
 };
+
+export const TicketFeedback = async function (req: AuthenticatedRequest, res: Response) {
+  const ticket = await Ticket.findOne({ _id: req.body._id });
+  if (!ticket) {
+    res.json({ success: false, message: "This ticket does not exist" });
+    return;
+  }
+  ticket.feedback = req.body.rating;
+  await ticket.save();
+  res.json({ success: true, message: "Ticket feedback received successfully" });
+  return;
+};

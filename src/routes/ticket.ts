@@ -6,6 +6,7 @@ import {
   getAssignedTickets,
   getMyTickets,
   getTicketById,
+  TicketFeedback,
   updateTicketStatus,
 } from "../controllers/ticketsController";
 import { authMiddleware } from "../middleware/authMiddleware";
@@ -15,6 +16,7 @@ const router = express.Router();
 
 router.post("/new", express.json(), authMiddleware, asyncHandler(createNewTicket));
 router.post("/assignTicket", express.json(), authMiddleware, asyncHandler(assignTicket));
+router.post("/feedback", express.json(), authMiddleware, asyncHandler(TicketFeedback));
 router.post("/status", express.json(), authMiddleware, asyncHandler(updateTicketStatus));
 router.get("/mytickets", express.json(), authMiddleware, asyncHandler(getMyTickets));
 router.get("/assigned", express.json(), authMiddleware, asyncHandler(getAssignedTickets));
